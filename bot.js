@@ -525,7 +525,7 @@ client.on('message', message => {
 .addField('     **!ping** ' , '**سرعة نتك**') 
 .addField('     **!avatar** ' , '**افتار*') 
 .addField('     **!server** ' , '**معلومات سيرفر*')
-.addField('     **!invite** ' , '**اينفايت للبوت*'
+.addField('     **!invite** ' , '**اينفايت للبوت*')
 .setColor('#7d2dbe')
   message.channel.sendEmbed(embed);
     }

@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = "&"
+const prefix = "!"
 
 client.on("ready", ()=>{
 client.user.setActivity('Baron#1500 Development', {type : 'watching'});
@@ -461,7 +461,7 @@ client.login(process.env.BOT_TOKEN);  //لا تحط التوكن حقك هنا
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`&help |By Maestro`,"http://twitch.tv/S-F")
+client.user.setGame(`!help |By Boss`,"http://twitch.tv/S-F")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -490,9 +490,9 @@ client.on('message', message => {
             if (message.content.startsWith(prefix + "help")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
-.addField('     **الاكواد الادارية ** ' ,' ** &help-1 ** ')
-.addField('     **اكواد عامة**  ' ,' **&help-2** ')
-.addField('     **العاب** ' , '**&help-3**') 
+.addField('     **الاكواد الادارية ** ' ,' ** !help-1 ** ')
+.addField('     **اكواد عامة**  ' ,' **!help-2** ')
+.addField('     **العاب** ' , '**!help-3**') 
 .setColor('#7d2dbe')
   message.channel.sendEmbed(embed);
     }
@@ -503,15 +503,15 @@ client.on('message', message => {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .addField('     **وضع 50 لون ** ' ,' **&color 50** ')
-.addField('     **&dcolors**  ' ,' **ازالة الوان** ')
-.addField('     **&roles -&channels** ' , '**عمل سيرفر رتب و رومات*') 
-.addField('     **&clear** ' ,' **مسح شات ** ')
-.addField('     **&vkick **  ' ,' **طرد من روم صوتي** ')
-.addField('     **&mutechannel ** ' , '**قفل روم*') 
-.addField('     **&unmutechannel ** ' ,' **الغاء قفل روم** ')
-.addField('     **&mute**  ' ,' **ميوت لشخص ** ')
-.addField('     **&umute -&channels** ' , '**الغاء ميوت*') 
-.addField('     **warn** ' , '**تحذير *') 
+.addField('     **!dcolors**  ' ,' **ازالة الوان** ')
+.addField('     **!roles -&channels** ' , '**عمل سيرفر رتب و رومات*') 
+.addField('     **!clear** ' ,' **مسح شات ** ')
+.addField('     **!vkick **  ' ,' **طرد من روم صوتي** ')
+.addField('     **!mutechannel ** ' , '**قفل روم*') 
+.addField('     **!unmutechannel ** ' ,' **الغاء قفل روم** ')
+.addField('     **!mute**  ' ,' **ميوت لشخص ** ')
+.addField('     **!umute -&channels** ' , '**الغاء ميوت*') 
+.addField('     **!warn** ' , '**تحذير *') 
 .setColor('#7d2dbe')
   message.channel.sendEmbed(embed);
     }
@@ -521,14 +521,29 @@ client.on('message', message => {
             if (message.content.startsWith(prefix + "help-2")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
-.addField('     **&new**  ' ,' **تيكت** ')
-.addField('     **&ping** ' , '**سرعة نتك**') 
-.addField('     **&avatar** ' , '**افتار*') 
-.addField('     **&server** ' , '**معلومات سيرفر*')  
+.addField('     **!new**  ' ,' **تيكت** ')
+.addField('     **!ping** ' , '**سرعة نتك**') 
+.addField('     **!avatar** ' , '**افتار*') 
+.addField('     **!server** ' , '**معلومات سيرفر*')
+.addField('     **!invite** ' , '**اينفايت للبوت*'
 .setColor('#7d2dbe')
   message.channel.sendEmbed(embed);
     }
 });
+
+client.on('message', message => {
+  if(message.content.startsWith(`${prefix}invite`)){
+    var embed = new Discord.RichEmbed()
+    .setTitle(">> ClickHere To Add" + `${client.user.username}` + " <<")
+    .setURL("https://discordapp.com/oauth2/authorize?client_id=" + `${client.user.id}` + "&scope=bot&permissions=2080374975")
+    .setTimestamp()
+    .setFooter(`Requested By | ${message.author.username}`)
+    .setColor("RANDOM")
+    message.channel.send("✅ | Check Your DM! تم الأرسال بلخاص")
+    message.author.send({embed})
+  }
+});
+
 
 client.on('message', message => {
             if (message.content.startsWith(prefix + "help-3")) {
@@ -706,11 +721,11 @@ var setReactionData = function(channel, message, reaction, identify) {
         }
     }
 }   
-const devs = ["336374035141230592"]
+const devs = ["421314666002907167"]
 
  
 
-const adminprefix = "&";//Narox
+const adminprefix = "!";//Narox
 
 client.on('message', message => {
 
@@ -876,7 +891,7 @@ rw.channel.sendEmbed(Embed11).then(rw => {rw.delete(15000)})
 
 client.on("message", (message) => {
 
-   if (message.content.startsWith("&new")) {     
+   if (message.content.startsWith("!new")) {     
 
         const reason = message.content.split(" ").slice(1).join(" ");     
 
@@ -938,17 +953,17 @@ client.on("message", (message) => {
 
  
 
-  if (message.content.startsWith("&close")) {
+  if (message.content.startsWith("!close")) {
 
         if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
 
  
 
-        message.channel.send(`هل أنت متأكد؟ بعد التأكيد ، لا يمكنك عكس هذا الإجراء!\n للتأكيد ، اكتب\`&confirm\`. سيؤدي ذلك إلى مهلة زمنية في غضون 10 ثوانٍ وإلغائها`)
+        message.channel.send(`هل أنت متأكد؟ بعد التأكيد ، لا يمكنك عكس هذا الإجراء!\n للتأكيد ، اكتب\`!confirm\`. سيؤدي ذلك إلى مهلة زمنية في غضون 10 ثوانٍ وإلغائها`)
 
             .then((m) => {
 
-                message.channel.awaitMessages(response => response.content === '&confirm', {
+                message.channel.awaitMessages(response => response.content === '!confirm', {
 
                         max: 1,
 
@@ -1098,10 +1113,8 @@ client.on('guildMemberAdd', member => {
 
     let args = message.content.split(' ');
 
-    let prefix = '&'; //تقدر تغير البرفكس
-
-    
-
+    let prefix = '!'; //تقدر تغير البرفكس
+		
     if(args[0] === `${prefix}avatar`){
 
         let mentions = message.mentions.members.first()
@@ -1142,7 +1155,7 @@ client.on('guildMemberAdd', member => {
 
 client.on('message', message => {
 
-var prefix = "&";
+var prefix = "!";
 
        if(message.content === prefix + "mutechannel") {
 
@@ -1198,7 +1211,7 @@ client.on("message", message => {
 
   let men = message.mentions.users.first();
 
-  if(message.content.startsWith( "&vkick")) {
+  if(message.content.startsWith( "!vkick")) {
 
     try {
 
@@ -1276,7 +1289,7 @@ client.on('message', function(message) {
 
     if(!message.channel.guild) return;
 
-if(message.content ===  '&color 50') {
+if(message.content ===  '!color 50') {
 
 if(message.member.hasPermission('MANAGE_ROLES')) {
 
@@ -1300,7 +1313,7 @@ message.channel.send('** يجب ان يكون لديك برمشن ،"MANAGE_ROLE
 
 client.on('message', message=>{
 
-if (message.content ===  '&color 50'){
+if (message.content ===  '!color 50'){
 
 if(!message.channel.guild) return;
 
@@ -1330,7 +1343,7 @@ client.on('message', async message => {
 
   if(message.author.bot) return;
 
-  let prefix = '&';
+  let prefix = '!';
 
 
 
@@ -1400,7 +1413,7 @@ client.on('message', message => {
 });//maestro
 
 client.on('message', async message =>{
-  var prefix = "&";
+  var prefix = "!";
 const ms = require("ms");
 if (message.author.omar) return;
 if (!message.content.startsWith(prefix)) return;
@@ -1627,7 +1640,7 @@ const pubg = [
 });
 
 client.on('message', message => {
-var prefix = "&";
+var prefix = "!";
 var cats = ["http://palestine-kitchen.ps/wp-content/uploads/2017/12/%D9%86%D9%83%D8%AA-%D8%AF%D8%A8%D8%A7%D9%86%D8%A9.png","http://www.i7lm.com/wp-content/uploads/2017/04/136769797816.jpg","https://4.bp.blogspot.com/-p62zmDIDXmI/WKzqNt9smaI/AAAAAAAAC4Q/sW_bSIB8OaQhwOYFeplc3uzz8PBN7l3YACEw/s1600/13602501135.jpg","https://www.universemagic.com/images/2016/03/7938-2-or-1457539273.jpg","https://1.bp.blogspot.com/-yFk-FzHSyE8/WR9fmPcsCUI/AAAAAAAAE6c/AmvjLadOiLY9GiCqMLHgA121bY2RS_dCwCLcB/s1600/%25D9%2586%25D9%2583%25D8%25AA%2B%25D9%2585%25D8%25B6%25D8%25AD%25D9%2583%25D8%25A9%2B1.jpg","https://l7zaat.com/wp-content/uploads/2018/02/423.jpg","https://www.petfinder.com/wp-content/uploads/2012/11/101438745-cat-conjunctivitis-causes.jpg","http://www.shuuf.com/shof/uploads/2018/02/08/jpg/shof_97d686082bdb0a2.jpg"];
         var args = message.content.split(" ").slice(1);
     if(message.content.startsWith(prefix + 'نكت')) {
@@ -1638,7 +1651,7 @@ message.channel.sendEmbed(cat);
 });
 
 client.on("message", function(message) {
-	var prefix = "&";
+	var prefix = "!";
    if(message.content.startsWith(prefix + "rps")) {
     let messageArgs = message.content.split(" ").slice(1).join(" ");
     let messageRPS = message.content.split(" ").slice(2).join(" ");
